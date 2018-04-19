@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Blogs extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      tmp: [
-        {id: '1', title: 'Title one', body: 'Body one' },
-        {id: '2', title: 'Title two', body: 'Body two' }
-      ]
-    }
   }
   componentDidMount() {
     this.props.loadBlogs();
   }
   renderBlogs() {
     let blogs = this.props.blogs;
+    console.log(blogs);
     let items = blogs.map((item) => {
       return(
         <article key={item.sys.id} className="card col-4" style={{ width: '18rem' }}>
@@ -24,6 +19,7 @@ class Blogs extends Component {
           <div className="card-body">
             <h5 className="card-title">{ item.fields.title }</h5>
             <p className="card-text">{ item.fields.body }</p>
+            <Link to={"/blog/" + item.sys.id}>Read more</Link>
           </div>
         </article>
       )

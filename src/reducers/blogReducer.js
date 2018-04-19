@@ -1,4 +1,4 @@
-const blogs = (state = [], action) => {
+export const blogs = (state = [], action) => {
   switch(action.type) {
     case 'FETCH_INIT':
       return [];
@@ -9,4 +9,12 @@ const blogs = (state = [], action) => {
   }
 }
 
-export default blogs;
+export const blog = (state = [], action)  => {
+  switch(action.type) {
+    case 'FETCH_BLOG_SUCCESS' :
+        return action.blog;
+        
+    default :
+      return state;
+  }
+};

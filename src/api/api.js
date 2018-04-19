@@ -15,17 +15,8 @@ export function fetchBlogs() {
   .catch((error) => {
     console.error(error)
   })
-  // const request = axios.get(`${API_BASE_URL}/spaces/${API_SPACE_ID}/entries?access_token=${API_TOKEN}&content_type=blog&order=sys.createdAt`);
-  // console.log('abc');
-  // return {
-  //   type: FETCH_BLOGS,
-  //   payload: request
-  // };
 }
-// export function fetchBlog(id) {
-//   const request = axios.get(`${API_BASE_URL}/spaces/${API_SPACE_ID}/entries/${id}?access_token=${API_TOKEN}&content_type=blog`);
-//   return {
-//     type: FETCH_BLOG,
-//     payload: request
-//   };
-// }
+
+export function fetchBlog(id) {
+  return client.getEntry(id.id).then((response) => response).catch((err) => console.log(err))
+}

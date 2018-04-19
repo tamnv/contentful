@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch
-} from 'react-router-dom';
-import Blogs from './Blogs';
-import Blog from './Blog';
-
+import { Link } from 'react-router-dom'
 
 export default class Menu extends Component {
-  render() {
+  render(){
     return (
-      <Router>
-        <div className="menu">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/blogs">Blog</Link></li>
-          </ul>
-        </div>
-      </Router>
+      <div>
+      <Link to="/">Home</Link>
+      {' '}
+      <Link to="/blogs">Blog</Link>
+      {' '}
+      </div>
     )
   }
 }

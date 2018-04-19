@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import {fetchBlogs} from '../api/api.js';
+import {fetchBlogs, fetchBlog} from '../api/api.js';
 
 export function* loadBlogs() {
   try {
@@ -11,12 +11,12 @@ export function* loadBlogs() {
   }
 }
 
-// export function* loadBlog() {
-//   try {
-//     const blog = yield call(fetchBlog)
-//     yield put({type: 'FETCH_BLOGS', payload: blog});
-//   }
-//   catch(error) {
-//     yield put({type: 'FETCH_FAILED', error});
-//   }
-// }
+export function* loadBlog(action) {
+  try {
+    const item = yield call(fetchBlog, action.id)
+    yield put({type: 'FETCH_BLOG_SUCCESS', blog: item});
+  }
+  catch(error) {
+    yield put({type: 'FETCH_FAILED', error});
+  }
+}
