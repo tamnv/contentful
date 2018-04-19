@@ -3,7 +3,7 @@ import {loadBlogs, loadBlog} from './loadBlog';
 
 function* rootSaga() {
   yield[
-    fork(loadBlogs),
+    takeLatest('FETCH_INIT', loadBlogs),
     takeLatest('FETCH_BLOG', loadBlog),
   ];
 }

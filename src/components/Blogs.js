@@ -11,7 +11,6 @@ class Blogs extends Component {
   }
   renderBlogs() {
     let blogs = this.props.blogs;
-    console.log(blogs);
     let items = blogs.map((item) => {
       return(
         <article key={item.sys.id} className="card col-4" style={{ width: '18rem' }}>
